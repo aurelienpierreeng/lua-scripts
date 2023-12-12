@@ -54,7 +54,7 @@ local df = require "lib/dtutils.file"
 local ds = require "lib/dtutils.string"
 local dtsys = require "lib/dtutils.system"
 local log = require "lib/dtutils.log"
-local debug = require "darktable.debug"
+local debug = require "ansel.debug"
 
 local gettext = dt.gettext
 
