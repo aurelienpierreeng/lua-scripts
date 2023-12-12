@@ -89,7 +89,7 @@ local DEFAULT_BUTTONS_PER_PAGE = 10
 local DEFAULT_LOG_LEVEL = log.error
 
 local LUA_DIR = dt.configuration.config_dir .. PS .. "lua"
-local LUA_SCRIPT_REPO = "https://github.com/darktable-org/lua-scripts.git"
+local LUA_SCRIPT_REPO = "https://github.com/aurelienpierreeng/lua-scripts.git"
 
 local LUA_API_VER = "API-" .. dt.configuration.api_version_string
 
