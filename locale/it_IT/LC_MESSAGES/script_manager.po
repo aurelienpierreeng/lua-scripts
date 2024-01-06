@@ -1,190 +1,221 @@
 # French messages for script_manager.lua
 # Christophe Agathon <christophe.agathon@gmail.com>, 2020.
-# Maurizio Paglia <mpaglia0@gmail.com>, 2021, 2022.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Maurizio Paglia <mpaglia0@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2020-12-28 10:22+0100\n"
-"PO-Revision-Date: 2022-07-11 22:03+0200\n"
-"Last-Translator: Maurizio Paglia <mpaglia0@gmail.com>\n"
-"Language-Team: Italian <>\n"
-"Language: fr_FR\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-06 18:51+0100\n"
+"PO-Revision-Date: 2024-01-06 18:54+0100\n"
+"Last-Translator: Maurizio <maurizio@mauriziopaglia.it>\n"
+"Language-Team: mpaglia0\n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 "X-Poedit-Basepath: ../../../tools\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-KeywordsList: _\n"
 "X-Poedit-SearchPath-0: script_manager.lua\n"
 
-#: script_manager.lua:190
+#: script_manager.lua:101
+msgid "check for updated scripts on start up"
+msgstr "Verifica script aggiornati all'avvio"
+
+#: script_manager.lua:102
+msgid "automatically update scripts to correct version"
+msgstr "Aggiorna automaticamente gli script alla versione corretta"
+
+#: script_manager.lua:372
 msgid "Cant read from "
 msgstr "Non posso leggere da "
 
-#: script_manager.lua:204
+#: script_manager.lua:395
 msgid "Loaded "
-msgstr "Script caricato "
+msgstr "Caricato "
 
-#: script_manager.lua:207
+#: script_manager.lua:407
 msgid " failed to load"
-msgstr "Non riesco a caricare lo script"
+msgstr " non caricato"
 
-#: script_manager.lua:223
-msgid " will not start when darktable is restarted"
-msgstr " non verrà avviato al riavvio di darktable"
+# Peut-être que « désactivé » serait mieux, mais ce n'est pas la traduction de « stopped »
+#: script_manager.lua:446 script_manager.lua:729 script_manager.lua:752
+msgid " stopped"
+msgstr " arrestato"
 
-#: script_manager.lua:281 script_manager.lua:345
+#: script_manager.lua:450
+msgid " will not start when Ansel is restarted"
+msgstr " non verrà avviato al riavvio di Ansel"
+
+#: script_manager.lua:518 script_manager.lua:592
 msgid "find command is "
 msgstr "Il comando find è "
 
-#: script_manager.lua:321
+#: script_manager.lua:546 script_manager.lua:641
+msgid ""
+"ERROR: git not found.  Install or specify the location of the git executable."
+msgstr ""
+"ERRORE: non trovo git.  Installalo o specifica il percorso dell'eseguibile di"
+" git."
+
+#: script_manager.lua:560
 msgid "lua scripts successfully updated"
 msgstr "Gli script lua sono stati correttamente aggiornati"
 
-#: script_manager.lua:381
+#: script_manager.lua:630
 msgid "category "
-msgstr "Categoria"
+msgstr "Categoria "
 
-#: script_manager.lua:381
+#: script_manager.lua:630
 msgid " is already in use. Please specify a different category name."
 msgstr " è già utilizzato. Prego specificare un nome differente."
 
-#: script_manager.lua:410
+#: script_manager.lua:661
 msgid "scripts successfully installed into category "
 msgstr "Gli script sono stati installati correttamente nella categoria "
 
-#: script_manager.lua:426
+#: script_manager.lua:677
 msgid "No scripts found to install"
 msgstr "Non trovo script da installare"
 
-#: script_manager.lua:430
+#: script_manager.lua:681
 msgid "failed to download scripts"
 msgstr "Non riesco a scaricare gli script"
 
 # Peut-être que « activé » serait mieux, mais ce n'est pas la traduction de « started »
-#: script_manager.lua:458
+#: script_manager.lua:722
 msgid " started"
 msgstr " avviato"
 
-# Peut-être que « désactivé » serait mieux, mais ce n'est pas la traduction de « stopped »
-#: script_manager.lua:460
-msgid " stopped"
-msgstr " bloccato"
-
-#: script_manager.lua:545
+#: script_manager.lua:829
 msgid "Page "
-msgstr "Pag."
+msgstr "Pag. "
 
-#: script_manager.lua:545
+#: script_manager.lua:829
 msgid " of "
 msgstr " di "
 
-#: script_manager.lua:674
+#: script_manager.lua:1046
 msgid "scripts to update"
 msgstr "Script da aggiornare"
 
-#: script_manager.lua:675
+#: script_manager.lua:1047
 msgid "select the scripts installation to update"
 msgstr "Selezionare l'installazione di script da aggiornare"
 
-#: script_manager.lua:684 script_manager.lua:742
+#: script_manager.lua:1056 script_manager.lua:1114
 msgid "update scripts"
 msgstr "Aggiornare gli script"
 
-#: script_manager.lua:685
+#: script_manager.lua:1057
 msgid "update the lua scripts from the repository"
 msgstr "Aggiornare gli script lua del repo"
 
-#: script_manager.lua:696
+#: script_manager.lua:1068
 msgid ""
 "enter the URL of the git repository containing the scripts you wish to add"
 msgstr "Immettere l'URL del repo git che contiene gli script da aggiungere"
 
-#: script_manager.lua:701
+#: script_manager.lua:1073
 msgid "name of new category"
 msgstr "Nome della nuova categoria"
 
-#: script_manager.lua:702
+#: script_manager.lua:1074
 msgid "enter a category name for the additional scripts"
 msgstr "Immettere il nome della categoria per altri script"
 
-#: script_manager.lua:707
+#: script_manager.lua:1079
 msgid "URL to download additional scripts from"
 msgstr "URL dal quale scaricare ulteriori script"
 
-#: script_manager.lua:709
+#: script_manager.lua:1081
 msgid "new category to place scripts in"
 msgstr "Nuova categoria che dovrà contenere gli script"
 
-#: script_manager.lua:712
+#: script_manager.lua:1084
 msgid "install additional scripts"
 msgstr "Installare gli script aggiuntivi"
 
-#: script_manager.lua:720
+#: script_manager.lua:1092
 msgid "Enable \"Disable Scripts\" button"
 msgstr "Abilita il pulsante \"Disabilita Script\""
 
-#: script_manager.lua:730
+#: script_manager.lua:1102
 msgid "Disable Scripts"
 msgstr "Disabilita Script"
 
-#: script_manager.lua:736
-msgid "lua scripts will not run the next time darktable is started"
-msgstr "Gli script lua non verranno avviati al prossimo riavvio di darktable"
+#: script_manager.lua:1108
+msgid "lua scripts will not run the next time Ansel is started"
+msgstr "Gli script Lua non verranno avviati al prossimo avvio di Ansel"
 
-#: script_manager.lua:745
+#: script_manager.lua:1117
 msgid "add more scripts"
 msgstr "Aggiungi altri script"
 
-#: script_manager.lua:747
+#: script_manager.lua:1119
 msgid "disable scripts"
 msgstr "Disabilita script"
 
-#: script_manager.lua:755
+#: script_manager.lua:1127
 msgid "category"
 msgstr "categoria"
 
-#: script_manager.lua:756
+#: script_manager.lua:1128
 msgid "select the script category"
 msgstr "Seleziona la categoria"
 
-#: script_manager.lua:780
+#: script_manager.lua:1148
 msgid "Page:"
 msgstr "Pag.:"
 
-#: script_manager.lua:808
+#: script_manager.lua:1176
 msgid "Scripts"
 msgstr "Scripts"
 
-#: script_manager.lua:817
+#: script_manager.lua:1185
 msgid "scripts per page"
 msgstr "Script per pagina"
 
-#: script_manager.lua:818
+#: script_manager.lua:1186
 msgid "select number of start/stop buttons to display"
 msgstr "Selezionare il numero di pulsanti da visualizzare"
 
-#: script_manager.lua:829
+#: script_manager.lua:1197
 msgid "change number of buttons"
 msgstr "Modifica la quantità di pulsanti"
 
-#: script_manager.lua:837
+#: script_manager.lua:1205
 msgid "Configuration"
 msgstr "Configurazione"
 
-#: script_manager.lua:858
+#: script_manager.lua:1211
+msgid "use color interface?"
+msgstr "Interfaccia a colori"
+
+#: script_manager.lua:1234
 msgid "action"
 msgstr "Azione"
 
-#: script_manager.lua:864
+#: script_manager.lua:1240
 msgid "install/update scripts"
 msgstr "Installa/aggiorna script"
 
-#: script_manager.lua:864
+#: script_manager.lua:1240
 msgid "configure"
 msgstr "Configura"
 
-#: script_manager.lua:864
+#: script_manager.lua:1240
 msgid "start/stop scripts"
 msgstr "Avvia/blocca script"
+
+#~ msgid " will not start when darktable is restarted"
+#~ msgstr " non verrà avviato al riavvio di darktable"
+
+#~ msgid "lua scripts will not run the next time darktable is started"
+#~ msgstr ""
+#~ "Gli script lua non verranno avviati al prossimo riavvio di darktable"
+
+#~ msgid "script manager"
+#~ msgstr "Gestione script lua"
+

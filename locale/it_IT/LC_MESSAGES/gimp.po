@@ -1,45 +1,54 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2023 Maurizio <maurizio@mauriziopaglia.it>
+# SPDX-FileCopyrightText: 2023, 2024 Maurizio <maurizio@mauriziopaglia.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: gimp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-13 23:50-0400\n"
-"PO-Revision-Date: 2023-12-16 18:16+0100\n"
+"POT-Creation-Date: 2024-01-06 18:55+0100\n"
+"PO-Revision-Date: 2024-01-06 19:04+0100\n"
 "Last-Translator: Maurizio <maurizio@mauriziopaglia.it>\n"
 "Language-Team: mpaglia0\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 23.08.4\n"
-"Language: de_DE\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: gettext;dgettext:2;dcgettext:2ngettext:1,2;dngettext:2,"
 "3\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gimp.lua:194
+#: gimp.lua:112
 #, lua-format
 msgid "Export Image %i/%i"
 msgstr "Esporto l'immagine %i/%i"
 
-#: gimp.lua:242
-msgid "Unable to move edited file into collection. Leaving it as %s"
-msgstr ""
-"Impossibile inserire il file modificato nella libreria. Verrà lasciato in %s"
-
-#: gimp.lua:251
+#: gimp.lua:122
 msgid "GIMP not found"
 msgstr "Non trovo GIMP"
 
-#: gimp.lua:266
+#: gimp.lua:145
 msgid "Launching GIMP..."
 msgstr "Avvio GIMP..."
 
-#: gimp.lua:313
+#: gimp.lua:208
+msgid "run detached"
+msgstr "Esegui separatamente"
+
+#: gimp.lua:209
+msgid "don't import resulting image back into Ansel"
+msgstr "Non importare la nuova immagine in Ansel"
+
+#: gimp.lua:216
 msgid "Edit with GIMP"
 msgstr "Modifica con GIMP"
+
+#~ msgid "Unable to move edited file into collection. Leaving it as %s"
+#~ msgstr ""
+#~ "Impossibile inserire il file modificato nella libreria. Verrà lasciato in "
+#~ "%s"
+
 

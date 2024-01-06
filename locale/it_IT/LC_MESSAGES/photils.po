@@ -1,13 +1,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2023 Maurizio <maurizio@mauriziopaglia.it>
+# SPDX-FileCopyrightText: 2023, 2024 Maurizio <maurizio@mauriziopaglia.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: Lua photils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-12 13:12+0200\n"
-"PO-Revision-Date: 2023-12-30 09:34+0100\n"
+"POT-Creation-Date: 2024-01-06 18:58+0100\n"
+"PO-Revision-Date: 2024-01-06 19:02+0100\n"
 "Last-Translator: Maurizio <maurizio@mauriziopaglia.it>\n"
 "Language-Team: mpaglia0\n"
 "Language: de\n"
@@ -17,15 +17,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.08.4\n"
 
+#: photils.lua:117
 msgid "get tags"
 msgstr "Crea etichette"
 
+#: photils.lua:148
 msgid "requires a restart to be applied"
 msgstr "Richiede un riavvio per rendere effettive le modifiche"
 
+#: photils.lua:163
 msgid "min confidence value"
 msgstr "Soglia di affidabilità"
 
+#: photils.lua:180
 msgid ""
 "The suggested tags were not generated\n"
 " for the currently selected image!"
@@ -33,43 +37,85 @@ msgstr ""
 "Le etichette relative all'immagine\n"
 "corrente non sono state create!"
 
+#: photils.lua:186
 #, lua-format
 msgid "  page %s of %s  "
 msgstr "  pagina %s di %s  "
 
+#: photils.lua:237
+msgid "Apply tag to image"
+msgstr "Applica etichetta all'immagine"
+
+#: photils.lua:249
 msgid "Tags successfully attached to image"
 msgstr "Le etichette sono state correttamente associate all'immagine"
 
+#: photils.lua:299
 #, lua-format
-msgid "Error writing to `%s`"
-msgstr "Errore di scrittura su `%s`"
+msgid "%s found %d tags for your image"
+msgstr "%s ha trovato %d etichetta per questa immagine"
 
+#: photils.lua:315
+msgid "No image selected."
+msgstr "Nessuna immagine selezionata."
+
+#: photils.lua:319
+msgid "This plugin can only handle a single image."
+msgstr "Questo plugin può gestire solo una singola immagine per volta"
+
+#: photils.lua:326
 #, lua-format
 msgid "%s failed, see terminal output for details"
 msgstr ""
 "%s ha fallito, visualizzare l'output del terminale per ulteriori dettagli"
 
+#: photils.lua:334
 #, lua-format
-msgid "%s found %d tags for your image"
-msgstr "%s ha trovato %d etichetta per questa immagine"
+msgid "no tags where found"
+msgstr "Non ho trovato etichette"
 
-msgid "No image selected."
-msgstr "Nessuna immagine selezionata."
-
-msgid "This plugin can only handle a single image."
-msgstr "Questo plugin può gestire solo una singola immagine per volta"
-
+#: photils.lua:365
 #, lua-format
 msgid "attach %d tags"
-msgstr "%d etichette allegate"
+msgstr "Collega %d etichette"
 
+#: photils.lua:429 photils.lua:430
 msgid "photils-cli not found"
 msgstr "Non ho trovato photils-cli"
 
-msgid ""
-"Select an image, click \"Get Tags\" and get \n"
-"suggestions for tags."
+#: photils.lua:432
+msgid "Click \"get tags\" to get suggestions for tags"
+msgstr "Clicca su \"Crea etichette\" per ottenere le etichette"
+
+#: photils.lua:467
+msgid "photils: show confidence value"
+msgstr "Photils: visualizza soglia di affidabilità"
+
+#: photils.lua:468
+msgid "if enabled, the confidence value for each tag is displayed"
 msgstr ""
-"Seleziona un'immagine e clicca su \"Crea etichette\"\n"
-"per visualizzare le etichette suggerite."
+"Se abilitata, verrà visualizzata la soglia di affidabilità per ogni etichetta"
+
+#: photils.lua:474
+msgid "photils: use exported image for tag request"
+msgstr ""
+"Photils: utilizza l'immagine esportata per la richiesta delle etichette"
+
+#: photils.lua:475
+msgid ""
+"If enabled, the image passed to photils for tag suggestion is based on the "
+"exported, already edited image. Otherwise, the embedded thumbnail of the RAW "
+"file will be used for tag suggestion.The embedded thumbnail could speedup "
+"the tag suggestion but can fail if the RAW file is not supported."
+msgstr ""
+"Se abilitato, l'immagine passata a Photils per il suggerimento delle"
+" etichette si basa sull'immagine esportata e già modificata. "
+"Altrimenti, per il suggerimento delle etichette viene utilizzata la miniatura"
+" incorporata del file RAW. "
+"La miniatura incorporata può velocizzare il suggerimento delle etichette, ma"
+" può fallire se il file RAW non è supportato."
+
+#, lua-format
+#~ msgid "Error writing to `%s`"
+#~ msgstr "Errore di scrittura su `%s`"
 
