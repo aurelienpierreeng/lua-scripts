@@ -1,17 +1,17 @@
 --[[
   This file is part of darktable,
   copyright (c) 2018, 2020, 2023 Bill Ferguson <wpferguson@gmail.com>
-  
+
   darktable is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
-  
+
   darktable is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
-  
+
   You should have received a copy of the GNU General Public License
   along with darktable.  If not, see <http://www.gnu.org/licenses/>.
 ]]
@@ -22,15 +22,15 @@
     manage the lua scripts.
 
     On startup script_manager scans the lua scripts directory to see what scripts are present.
-    Scripts are sorted by 'category' based on what sub-directory they are in.  With no 
+    Scripts are sorted by 'category' based on what sub-directory they are in.  With no
     additional script repositories iinstalled, the categories are contrib, examples, official
     and tools.  When a category is selected the buttons show the script name and whether the
-    script is started or stopped.  The button is a toggle, so if the script is stopped click 
+    script is started or stopped.  The button is a toggle, so if the script is stopped click
     the button to start it and vice versa.
 
     Features
 
-    * the number of script buttons shown can be changed to any number between 5 and 20.  The 
+    * the number of script buttons shown can be changed to any number between 5 and 20.  The
       default is 10 buttons.  This can be changed in the configuration action.
 
     * additional repositories of scripts may be installed using from the install/update action.
@@ -40,9 +40,9 @@
 
     * the scripts can be disabled if desired from the install/update action.  This can only
       be reversed manually.  To enable the "Disable Scripts" button, check the checkbox to
-      endable it.  This is to prevent accidentally disabling the scripts.  Click the 
+      endable it.  This is to prevent accidentally disabling the scripts.  Click the
       "Disable Scripts" button and the luarc file is renamed to luarc.disable.  If at
-      a later time you want to enable the scripts again, simply rename the luarc.disabled 
+      a later time you want to enable the scripts again, simply rename the luarc.disabled
       file to luarc and the scripts will run.
 
 ]]
@@ -70,9 +70,9 @@ end
 
 du.check_min_api_version("5.0.0", "script_manager")
 
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
 -- C O N S T A N T S
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
 
 -- path separator
 local PS = dt.configuration.running_os == "windows" and "\\" or "/"
@@ -93,28 +93,28 @@ local LUA_SCRIPT_REPO = "https://github.com/aurelienpierreeng/lua-scripts.git"
 
 local LUA_API_VER = "API-" .. dt.configuration.api_version_string
 
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
 -- P R E F E R E N C E S
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
 
 dt.preferences.register(MODULE, "check_update", "bool",
-  _("check for updated scripts on start up"), 
-  _("automatically update scripts to correct version"), 
+  _("check for updated scripts on start up"),
+  _("automatically update scripts to correct version"),
   true)
 
 local check_for_updates = dt.preferences.read(MODULE, "check_update", "bool")
 
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
 -- L O G  L E V E L
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
 
 local old_log_level = log.log_level()
 
 log.log_level(DEFAULT_LOG_LEVEL)
 
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
 -- N A M E  S P A C E
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
 
 local script_manager = {}
 local sm = script_manager
@@ -155,7 +155,7 @@ sm.log_level = DEFAULT_LOG_LEVEL
   path          category (folder), path separator, path, name without the lua extension
   doc           the header comments from the script to be used as a tooltip
   script_name   the folder, path separator, and name without the lua extension
-  running       true if running, false if not, hidden if running but the 
+  running       true if running, false if not, hidden if running but the
                 lib/storage/action for the script is hidden
   has_lib       true if it creates a module
   lib_name      name of the created lib
@@ -168,7 +168,7 @@ sm.log_level = DEFAULT_LOG_LEVEL
   has_event     true if it creates an event handler
   event_type    type of event, shortcut, post-xxx, pre-xxx
   callback      name of the callback routine
-  initialized   all of the above data has been retreived and set.  If the 
+  initialized   all of the above data has been retreived and set.  If the
                 script is unloaded and reloaded we don't have to reparse the file
 
 ]]
@@ -192,9 +192,9 @@ sm.installed_repositories = {
 -- don't let it run until everything is in place
 sm.run = false
 
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
 -- F U N C T I O N S
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
 
 -------------------
 -- helper functions
@@ -286,7 +286,7 @@ local function get_repo_branches(repo)
     end
   end
   restore_log_level(old_log_level)
-  return branches 
+  return branches
 end
 
 local function is_repo_clean(repo_data)
@@ -316,7 +316,7 @@ local function update_combobox_choices(combobox, choice_table, selected)
   local old_log_level = set_log_level(sm.log_level)
   local items = #combobox
   local choices = #choice_table
-  for i, name in ipairs(choice_table) do 
+  for i, name in ipairs(choice_table) do
     combobox[i] = name
   end
   if choices < items then
@@ -447,7 +447,7 @@ local function deactivate(script)
   else
     script.running = false
     log.msg(log.info, "setting " .. script.script_name .. " to not start")
-    log.msg(log.screen, script.name .. _(" will not start when darktable is restarted"))
+    log.msg(log.screen, script.name .. _(" will not start when Ansel is restarted"))
   end
   restore_log_level(old_log_level)
 end
@@ -456,8 +456,8 @@ local function add_script_name(name, path, category)
   local old_log_level = set_log_level(sm.log_level)
   log.msg(log.debug, "category is " .. category)
   log.msg(log.debug, "name is " .. name)
-  local script = { 
-    name = name, 
+  local script = {
+    name = name,
     path = category .. "/" .. path .. name,
     running = false,
     doc = get_script_doc(category .. "/" .. path .. name),
@@ -480,7 +480,7 @@ local function process_script_data(script_file)
   -- the following pattern splits the string into category, path, name, fileename, and filetype
   -- for example contrib/gimp.lua becomes
   -- category - contrib
-  -- path - 
+  -- path -
   -- name - gimp.lua
   -- filename - gimp
   -- filetype - lua
@@ -741,7 +741,7 @@ local function populate_buttons(category, first, last)
         script_name, state = string.match(this.label, "(.-) (.+)")
       end
       local script = find_script(sm.widgets.category_selector.value, script_name)
-      if script then 
+      if script then
         log.msg(log.debug, "found script " .. script.name .. " with path " .. script.path)
         if script.running == true then
           log.msg(log.debug, "deactivating " .. script.name .. " on " .. script.path .. " for button " .. this.label)
@@ -961,9 +961,9 @@ local function install_module()
   restore_log_level(old_log_level)
 end
 
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
 -- M A I N  P R O G R A M
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
 
 -- ensure shortcuts module knows widgets belong to script_manager
 
@@ -976,14 +976,14 @@ if check_for_updates then
   local repo = LUA_DIR
 
   if current_branch then
-    if sm.executables.git and clean and 
+    if sm.executables.git and clean and
       (current_branch == "master" or string.match(current_branch, "^API%-")) then -- only make changes to clean branches
       local branches = get_repo_branches(LUA_DIR)
       if current_branch ~= LUA_API_VER and current_branch ~= "master" then
         -- probably upgraded from an earlier api version so get back to master
         -- to use the latest version of script_manager to get the proper API
         checkout_repo_branch(repo, "master")
-        log.msg(log.screen, "lua API version reset, please restart darktable")
+        log.msg(log.screen, "lua API version reset, please restart Ansel")
       elseif LUA_API_VER == current_branch then
         -- do nothing, we are fine
         log.msg(log.debug, "took equal branch, doing nothing")
@@ -1021,7 +1021,7 @@ if check_for_updates then
             match = true
             log.msg(log.info, "checking out repo branch " .. branch)
             checkout_repo_branch(repo, branch)
-            log.msg(log.screen, "you must restart darktable to use the correct version of the lua")
+            log.msg(log.screen, "you must restart Ansel to use the correct version of the lua")
           end
         end
         if not match then
@@ -1036,9 +1036,9 @@ scan_scripts(LUA_DIR)
 log.msg(log.debug, "finished processing scripts")
 
 
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
 -- U S E R  I N T E R F A C E
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
 
 -- update the scripts
 
@@ -1105,7 +1105,7 @@ sm.widgets.disable_scripts = dt.new_widget("button"){
     local LUARC = dt.configuration.config_dir .. PS .. "luarc"
     df.file_move(LUARC, LUARC .. ".disabled")
     log.msg(log.info, "lua scripts disabled")
-    dt.print(_("lua scripts will not run the next time darktable is started"))
+    dt.print(_("lua scripts will not run the next time Ansel is started"))
   end
 }
 
@@ -1137,7 +1137,7 @@ sm.widgets.category_selector = dt.new_widget("combobox"){
 }
 
 sm.widgets.buttons ={}
-for i =1, DEFAULT_BUTTONS_PER_PAGE do 
+for i =1, DEFAULT_BUTTONS_PER_PAGE do
   table.insert(sm.widgets.buttons, dt.new_widget("button"){})
   sm.page_status.buttons_create = sm.page_status.buttons_created + 1
 end
@@ -1149,7 +1149,7 @@ sm.widgets.page_status = dt.new_widget("label"){label = _("Page:")}
 sm.widgets.page_back = dt.new_widget("button"){
   label = page_back,
   clicked_callback = function(this)
-    if sm.run then 
+    if sm.run then
       paginate(0)
     end
   end
@@ -1240,7 +1240,7 @@ sm.widgets.main_menu = dt.new_widget("combobox"){
    _("install/update scripts"), _("configure"), _("start/stop scripts")
 }
 
--- widget for module 
+-- widget for module
 
 sm.widgets.main_box = dt.new_widget("box"){
   sm.widgets.main_menu,
@@ -1249,9 +1249,9 @@ sm.widgets.main_box = dt.new_widget("box"){
 
 script_manager_running_script = nil
 
--- - - - - - - - - - - - - - - - - - - - - - - - 
--- D A R K T A B L E  I N T E G R A T I O N 
--- - - - - - - - - - - - - - - - - - - - - - - - 
+-- - - - - - - - - - - - - - - - - - - - - - - -
+-- D A R K T A B L E  I N T E G R A T I O N
+-- - - - - - - - - - - - - - - - - - - - - - - -
 
 if dt.gui.current_view().id == "lighttable" then
   install_module()

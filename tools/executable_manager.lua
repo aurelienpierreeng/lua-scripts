@@ -103,7 +103,7 @@ local function install_module()
   if not exec_man.module_installed then
     dt.register_lib(
       "executable_manager",     -- Module name
-      "executable manager",     -- Visible name
+      "Executable manager",     -- Visible name
       true,                -- expandable
       false,               -- resetable
       {[dt.gui.views.lighttable] = {"DT_UI_CONTAINER_PANEL_LEFT_BOTTOM", 600}},   -- containers
@@ -187,7 +187,7 @@ exec_man.stack = dt.new_widget("stack"){}
 -- create a combobox to for indexing into the stack of widgets
 
 exec_man.selector = dt.new_widget("combobox"){
-  label = "executable",
+  label = "Executable",
   tooltip = _("select executable to modify"),
   value = 1, "placeholder",
   changed_callback = function(self)
