@@ -42,7 +42,7 @@
     * select an image or images for editing with GIMP
     * in the export dialog select "Edit with GIMP" and select the format and bit depth for the
       exported image.  Check the  "run_detached" button to run GIMP in detached mode.  Images
-      will not be returned to darktable in this mode, but additional images can be sent to 
+      will not be returned to darktable in this mode, but additional images can be sent to
       GIMP without stopping it.
     * Press "export"
     * Edit the image with GIMP then save the changes with File->Overwrite....
@@ -72,7 +72,7 @@ local dtsys = require "lib/dtutils.system"
 local gettext = dt.gettext
 local gimp_widget = nil
 
-du.check_min_api_version("7.0.0", "gimp") 
+du.check_min_api_version("7.0.0", "gimp")
 
 -- return data structure for script_manager
 
@@ -206,7 +206,7 @@ end
 
 gimp_widget = dt.new_widget("check_button"){
   label = _("run detached"),
-  tooltip = _("don't import resulting image back into darktable"),
+  tooltip = _("don't import resulting image back into Ansel"),
   value = dt.preferences.read("gimp", "run_detached", "bool"),
   clicked_callback = function(this)
     dt.preferences.write("gimp", "run_detached", "bool", this.value)
