@@ -29,8 +29,7 @@
     USAGE
     * require this script from your main lua file
       To do this add this line to the file .config/darktable/luarc:
-      require "contrib/photils"
-    * Select an image
+      require "contrib/photils
     * Press "get tags"
     * Select the tags you want from a list of suggestions
     * Press "Attach .. Tags" to add the selected tags to your image
@@ -42,7 +41,7 @@ local df = require "lib/dtutils.file"
 local dtsys = require "lib/dtutils.system"
 
 local MODULE_NAME = "photils"
-du.check_min_api_version("7.0.0", MODULE_NAME) 
+du.check_min_api_version("7.0.0", MODULE_NAME)
 
 -- return data structure for script_manager
 
@@ -156,7 +155,7 @@ local GUI = {
     confidence_slider = dt.new_widget("slider") {
         step = 1,
         digits = 0,
-        value = 90,
+        value = 96,
         hard_max = 100,
         hard_min = 0,
         soft_max = 100,
@@ -430,7 +429,7 @@ if not photils_installed then
     GUI.warning_label.label = _("photils-cli not found")
     dt.print_log(_("photils-cli not found"))
 else
-    GUI.warning_label.label = _("Select an image, click \"get tags\" and get \nsuggestions for tags.")
+    GUI.warning_label.label = _("Click \"get tags\" to get suggestions for tags")
 end
 
 GUI.pagination = dt.new_widget("box") {

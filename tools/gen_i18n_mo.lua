@@ -18,7 +18,7 @@
 ]]
 --[[
     gen_i18n_mo - generate translation files from the source and place them in the appropriate locale directory
-    
+
     gen_i18n_mo finds all the .po files scattered throughout the script tree, compiles them into
     .mo files and places them in the correct locale directory for use by the gettext tools.
 
@@ -93,7 +93,7 @@ end
 dt.preferences.register("executable_paths", "msgfmt",  -- name
   "file", -- type
   'gen_i18n_mo: msgfmt location', -- label
-  'Install location of msgfmt. Requires restart to take effect.',  -- tooltip
+  'Install location of msgfmt. Requires Ansel restart to take effect.',  -- tooltip
   "msgfmt",  -- default
   dt.new_widget("file_chooser_button"){
     title = "Select msgfmt[.exe] file",
